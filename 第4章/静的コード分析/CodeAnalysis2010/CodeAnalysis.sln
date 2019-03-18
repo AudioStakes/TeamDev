@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis", "CodeAnalysis\CodeAnalysis.csproj", "{DF7BF507-663E-4C83-A7AF-81C72BA41F65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StepUpPractices", "StepUpPractices\StepUpPractices.csproj", "{8AA91561-12AF-440D-87DA-DC830519E1A0}"
+EndProject
+Global
+
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF7BF507-663E-4C83-A7AF-81C72BA41F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF7BF507-663E-4C83-A7AF-81C72BA41F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF7BF507-663E-4C83-A7AF-81C72BA41F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF7BF507-663E-4C83-A7AF-81C72BA41F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA91561-12AF-440D-87DA-DC830519E1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA91561-12AF-440D-87DA-DC830519E1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA91561-12AF-440D-87DA-DC830519E1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA91561-12AF-440D-87DA-DC830519E1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

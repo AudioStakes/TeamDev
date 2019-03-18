@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MvvmSampleDatabaseModelStoreContainer" CdmEntityContainer="MvvmSampleEntities">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="MvvmSample.DatabaseModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ProductUrl" ColumnName="ProductUrl" />
+          <ScalarProperty Name="DownloadUrl" ColumnName="DownloadUrl" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="PublisherUrl" ColumnName="PublisherUrl" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings name="ローカル" id="be8a66ab-e0a9-4bb2-8c8e-f9a5b36f2cda" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>これらはローカル テスト実行用の既定のテスト設定です。</Description>
+  <Deployment enabled="false" />
+  <Execution>
+    <TestTypeSpecific />
+    <AgentRule name="Execution Agents">
+    </AgentRule>
+  </Execution>
+</TestSettings>

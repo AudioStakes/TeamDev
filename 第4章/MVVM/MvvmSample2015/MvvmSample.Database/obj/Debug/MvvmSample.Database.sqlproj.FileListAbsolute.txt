@@ -1,0 +1,10 @@
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\bin\Debug\MvvmSample.Database.dacpac
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\bin\Debug\MvvmSample.Database.dll
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\bin\Debug\MvvmSample.Database.pdb
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\MvvmSample.Database.sqlprojAssemblyReference.cache
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\Model.xml
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\refactor.xml
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\postdeploy.sql
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\predeploy.sql
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\MvvmSample.Database.dll
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Database\obj\Debug\MvvmSample.Database.pdb

@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>Surviveplus.UnitTestPlus</name>
+    </assembly>
+    <members>
+        <member name="T:Net.Surviveplus.UnitTestPlus.Infrastructures.Database">
+            <summary>
+                <para>
+            データベースに対する操作を司るクラスです。
+            このクラスはフレームワーク基盤です。独自のコードで使用しないでください。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.Database.GetDatabaseFolder(System.Object,System.String)">
+            <summary>
+            テストに使用するデータベースファイルが保存されたフォルダのパスを取得します。
+            このメソッドはテストフレームワークのインフラストラクチャに使用されます。独自のコードから使用しないでください。
+            </summary>
+            <param name="testClass">TestClass 属性の付与されたテストクラスのインスタンスを指定します。</param>
+            <param name="folderName">
+            データベースが保存されたフォルダの名前を指定します。
+            testClass で指定されたクラスが含まれるアセンブリのコンテンツとしてコピーされるフォルダを指定します。</param>
+            <returns>目的のフォルダの DirectoryInfo を返します。</returns>
+            <remarks>
+            このフォルダに保存するデータベースファイル（MDFファイル）は、
+            ビルドアクションを "コンテンツ"、出力ディレクトリにコピーを "常にコピーする" あるいは "新しい場合はコピーする" に設定してください。
+            </remarks>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.Database.GetTestDatabaseFolder(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,System.String)">
+            <summary>
+            テスト実行時に使用するデータベースを配置するフォルダのパスを取得します。
+            このメソッドはテストフレームワークのインフラストラクチャに使用されます。独自のコードから使用しないでください。
+            </summary>
+            <param name="testContext">TestContext オブジェクトを指定します。</param>
+            <param name="folderName">フォルダ名を指定します。</param>
+            <returns>目的のフォルダの DirectoryInfo を返します。</returns>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.Database.CopyAndAttachDatabaseFiles(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,Net.Surviveplus.UnitTestPlus.DatabaseKind,System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            指定されたフォルダのデータベースファイルを、テスト用のフォルダに全てコピーしてアタッチします。
+            このメソッドはテストフレームワークのインフラストラクチャに使用されます。独自のコードから使用しないでください。
+            </summary>
+            <param name="testContext">TestContext オブジェクトを指定します。</param>
+            <param name="serverKind">データベースの種類を指定します。</param>
+            <param name="originalDBFolder">テストに使用するデータベースファイルが保存されたフォルダを指定します。</param>
+            <param name="testDBFolder">テスト実行時に使用するデータベースを配置するフォルダを指定します。</param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.Database.DetachDatabaseFiles(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,System.String)">
+            <summary>
+            CopyAndAttachDatabaseFiles, CopyAndImportDatabaseFiles メソッドでアタッチされたデータベースを全てデタッチします。
+            このメソッドはテストフレームワークのインフラストラクチャに使用されます。独自のコードから使用しないでください。
+            </summary>
+            <param name="testContext">アタッチ時に指定した TestContext を指定します。</param>
+            <param name="serverName">サーバー名を指定します。</param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.Database.CopyAndImportDatabaseFiles(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,Net.Surviveplus.UnitTestPlus.DatabaseKind,System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            指定されたフォルダのBACPACファイルを、テスト用のフォルダに全てコピーしてインポートします。
+            このメソッドはテストフレームワークのインフラストラクチャに使用されます。独自のコードから使用しないでください。
+            </summary>
+            <param name="testContext">TestContext オブジェクトを指定します。</param>
+            <param name="serverKind">データベースの種類を指定します。</param>
+            <param name="originalDBFolder">テストに使用するデータベースファイルが保存されたフォルダを指定します。</param>
+            <param name="testDBFolder">テスト実行時に使用するデータベースを配置するフォルダを指定します。</param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.Database.CopyAndDeployDatabaseFiles(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext,Net.Surviveplus.UnitTestPlus.DatabaseKind,System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            指定されたフォルダのDACPACファイルを、テスト用のフォルダに全てコピーしてデプロイします。
+            このメソッドはテストフレームワークのインフラストラクチャに使用されます。独自のコードから使用しないでください。
+            </summary>
+            <param name="testContext">TestContext オブジェクトを指定します。</param>
+            <param name="serverKind">データベースの種類を指定します。</param>
+            <param name="originalDBFolder">テストに使用するデータベースファイルが保存されたフォルダを指定します。</param>
+            <param name="testDBFolder">テスト実行時に使用するデータベースを配置するフォルダを指定します。</param>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.Infrastructures.DatabaseKindExtensions">
+            <summary>
+                <para>
+            Net.Surviveplus.UnitTestPlus.DatabaseKind の拡張メソッドを定義する静的クラスです。
+            このクラスはフレームワーク基盤です。独自のコードで使用しないでください。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.DatabaseKindExtensions.ToServerNameString(Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            値をデータベース サーバー名を表す文字列として取得します。
+            </summary>
+            <param name="me">拡張メソッドを追加する元の型のオブジェクトです。</param>
+            <returns>
+            データベース サーバー名 を表す文字列を返します
+            </returns>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.DatabaseKindExtensions.ToDBNameString(Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            値をデータベース 名を表す文字列として取得します。
+            </summary>
+            <param name="me">拡張メソッドを追加する元の型のオブジェクトです。</param>
+            <returns>
+            データベース 名 を表す文字列を返します
+            </returns>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.DatabaseKindExtensions.ToToolFolderNameString(Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            値をツールのフォルダ名を表す文字列として取得します。
+            </summary>
+            <param name="me">拡張メソッドを追加する元の型のオブジェクトです。</param>
+            <returns>
+            ツールのフォルダ名 を表す文字列を返します
+            </returns>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.Infrastructures.DirectoryInfoExtensions">
+            <summary>
+                <para>
+            System.IO.DirectoryInfo クラスへの拡張メソッドを定義する静的クラスです。
+            このクラスはフレームワーク基盤です。独自のコードで使用しないでください。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.DirectoryInfoExtensions.SetFullControl(System.IO.DirectoryInfo)">
+            <summary>
+            フォルダにフルコントロールのアクセス権を付与します。
+            </summary>
+            <param name="me">拡張メソッドを追加する元の型のオブジェクトです。</param>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.Infrastructures.FileInfoExtensions">
+            <summary>
+                <para>
+            System.IO.FileInfo クラスへの拡張メソッドを定義する静的クラスです。
+            このクラスはフレームワーク基盤です。独自のコードで使用しないでください。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.FileInfoExtensions.SetFullControl(System.IO.FileInfo)">
+            <summary>
+            ファイルにフルコントロールを付与します。
+            </summary>
+            <param name="me">拡張メソッドを追加する元の型のオブジェクトです。</param>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.NoExpectedReason">
+            <summary>
+                <para>期待値の無い理由を表す列挙体です。</para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.NoExpectedReason.None">
+            <summary>
+                <para>なし、あるいは不明を表します。</para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.NoExpectedReason.Void">
+            <summary>
+                <para>テスト対象のメソッドの戻り値が無いためです。</para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.NoExpectedReason.ThrowException">
+            <summary>
+                <para>テストによって対象のメソッドが例外を返す事を期待しているためです。</para>
+            </summary>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.CopyAndDeployDatabaseFiles">
+            <summary>
+              Looks up a localized string similar to Deploying database files for this test..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MassageOfRetryAfterCreate">
+            <summary>
+              Looks up a localized string similar to Failed to connect to a database. It create local DB, and try to do again..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessaeOfCreateLocalDB">
+            <summary>
+              Looks up a localized string similar to Creating Local DB of "{0}"..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageForNoExpectedReasonNone">
+            <summary>
+              Looks up a localized string similar to There is no expected value..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageForNoExpectedReasonThrowException">
+            <summary>
+              Looks up a localized string similar to There is no expected value, because it is expected that the exception will be thrown.
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageForNoExpectedReasonVoid">
+            <summary>
+              Looks up a localized string similar to There is no expected value, because the method don't return value..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfAttachFilesHasRunAleady">
+            <summary>
+              Looks up a localized string similar to AttachFiles has run already..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfCannotChangeServerProperty">
+            <summary>
+              Looks up a localized string similar to You cannot change Server property anymore because AttachFiles has run already..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfClosingAndDetaching">
+            <summary>
+              Looks up a localized string similar to Closing connection to "{0}" and detaching it..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfDatabaseNameExceeds">
+            <summary>
+              Looks up a localized string similar to The length of database name "{0}" which is attached (or is imported) for tests exceeds 123 characters. Please change to the shorter name..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfDetachDatabaseFiles">
+            <summary>
+              Looks up a localized string similar to Detaching database files for this test..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfFailedToDetach">
+            <summary>
+              Looks up a localized string similar to Failed to detach..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfNotExistDatabaseFolder">
+            <summary>
+              Looks up a localized string similar to The database folder does not exist..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfNotSupported">
+            <summary>
+              Looks up a localized string similar to {0} is not supported by the current implementation..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfNullEmpEx">
+            <summary>
+              Looks up a localized string similar to Cannot provide the empty string or a null reference (Nothing in Visual Basic) to {0}..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOfThereAreNotTestContext">
+            <summary>
+              Looks up a localized string similar to Thare are not TestContext in this TestClass. Add TestContext property..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnAttachFiles">
+            <summary>
+              Looks up a localized string similar to Using database..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnCopyAndAttachDatabaseFiles">
+            <summary>
+              Looks up a localized string similar to Attaching database files for this test..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnCopyAndImportDatabaseFiles">
+            <summary>
+              Looks up a localized string similar to Importing database files for this test..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteActualForNull">
+            <summary>
+              Looks up a localized string similar to The result is null reference (Nothing in Visual Basic)..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteActualForValue">
+            <summary>
+              Looks up a localized string similar to The result is {0}..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteArgsAndExpectedForArgs">
+            <summary>
+              Looks up a localized string similar to The method will be called with setting {0} as the parameter(s)..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteArgsAndExpectedForExpected">
+            <summary>
+              Looks up a localized string similar to The expected value is {0}..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteArgsAndExpectedForNullArgs">
+            <summary>
+              Looks up a localized string similar to The method will be called with setting null reference (Nothing in Visual Basic) as the parameter..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteArgsAndExpectedForNullExpected">
+            <summary>
+              Looks up a localized string similar to The expected value is null reference (Nothing in Visual Basic)..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteConstructorArgsForNull">
+            <summary>
+              Looks up a localized string similar to The constructor will be called with setting null reference (Nothing in Visual Basic) as the parameter..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteConstructorArgsForValue">
+            <summary>
+              Looks up a localized string similar to The constructor will be called with setting {0} as the parameter(s)..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteFakes">
+            <summary>
+              Looks up a localized string similar to The following value is replaced using Fakes..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteFakesCalled">
+            <summary>
+              Looks up a localized string similar to {0} replaced by Fakes was called..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteNotThrownException">
+            <summary>
+              Looks up a localized string similar to The expected exception was not thrown actually..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWritePropertiesForNull">
+            <summary>
+              Looks up a localized string similar to The properties will be set null reference (Nothing in Visual Basic)..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWritePropertiesForValue">
+            <summary>
+              Looks up a localized string similar to The properties will be set with setting {0}..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteTestContextEnd">
+            <summary>
+              Looks up a localized string similar to ..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MessageOnWriteTestContextStart">
+            <summary>
+              Looks up a localized string similar to TestContext is.
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MssageOfAttachFile">
+            <summary>
+              Looks up a localized string similar to "{0}" is attached as name "{1}"..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MssageOfDeployFile">
+            <summary>
+              Looks up a localized string similar to "{0}" is deployed as name "{1}"..
+            </summary>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.Properties.Resources.MssageOfImportFile">
+            <summary>
+              Looks up a localized string similar to "{0}" is imported as name "{1}"..
+            </summary>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.ReportingConsole">
+            <summary>
+                <para>単体テストの進捗や結果をわかりやすい表現で Console に出力するクラスです。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteFakesCalled(System.String)">
+            <summary>
+                <para>Fakes によって置き換えられたメソッドが呼ばれたことを Console に出力します。</para>
+            </summary>
+            <param name="originalMethodName">
+                <para>置き換えられたメソッドの名前空間、クラス名、メソッド名を指定します。例：System.DateTime.Now </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteFakes(System.Object)">
+            <summary>
+                <para>
+            Fakes で実行環境を置き換える事を Console に出力します。
+            例えば System.DateTime.Now の値をある固定値に置き換える場合や、
+            アプリケーション構成設定ファイル（App.config）に定義されている接続文字列を置き換える場合に使用します。
+            </para>
+            </summary>
+            <param name="environment">
+                <para>
+            置き換えられる値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteConstructorArgs(System.Object)">
+            <summary>
+                <para>コンストラクタの引数に指定する値を Console に出力します。</para>
+            </summary>
+            <param name="constructorArgs">
+                <para>
+            指定する引数の値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteProperties(System.Object)">
+            <summary>
+                <para>プロパティに指定する値を Console に出力します。</para>
+            </summary>
+            <param name="props">
+                <para>
+            指定するプロパティの値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteArgsAndExpected(System.Object,System.Object)">
+            <summary>
+                <para>
+            テスト対象のメソッドの引数に指定する値と、戻り値の期待値を Console に出力します。
+            戻り値が無いメソッドをテストする場合は WriteArgsWithNoExpected を使用します。
+            </para>
+            </summary>
+            <param name="args">
+                <para>
+            指定する引数の値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+            <param name="expected">
+                <para>
+            期待する戻り値の値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteArgsWithNoExpected(System.Object,Net.Surviveplus.UnitTestPlus.NoExpectedReason)">
+            <summary>
+                <para>
+            テスト対象のメソッドの引数に指定する値を Console に出力します。
+            戻り値があるメソッドをテストする場合は WriteArgsAndExpected を使用します。
+            </para>
+            </summary>
+            <param name="args">
+                <para>
+            指定する引数の値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+            <param name="reason">
+                <para>
+            戻り値の期待値がない理由を指定します。
+            メソッドに戻り値が無いのか、例外がスローされることを期待しているのか？を指定します。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteActual(System.Object)">
+            <summary>
+                <para>実行結果を Console に出力します。</para>
+            </summary>
+            <param name="actual">
+                <para>
+            テスト対象のメソッドの実行結果の値を格納した変数を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteNotThrownException(System.Object)">
+            <summary>
+                <para>
+            テスト対象のメソッドを実行した後、例外がスローされることを期待していたにも関わらず、
+            例外がスローされなかった事を Console に出力します。
+            </para>
+            </summary>
+            <param name="actual">
+                <para>
+            実際の実行結果の戻り値を指定します。
+            匿名型を指定すると値と名前が出力されます。
+            独自の型を指定する場合は、ToString メソッドを適切にオーバーライドする必要があります。
+            </para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.ReportingConsole.WriteTestContext(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)">
+            <summary>
+                <para>
+            テストクラスの TestContext プロパティの値を Console に出力します。
+            テストを実行する時に作成されるフォルダのパスを知りたい場合などに使用します。
+            </para>
+            </summary>
+            <param name="testContext">
+                <para>テストクラスの TestContext プロパティを指定します。</para>
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+                <para>testContext 引数が null 参照 (Visual Basic では Nothing) の時</para>
+            </exception>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.ReportingConsole.Culture">
+            <summary>
+                <para>Net.Surviveplus.UnitTestPlus.ReportingConsole のカルチャーを取得、または設定します。</para>
+            </summary>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.Infrastructures.SqlServerDatabase">
+            <summary>
+                <para>
+            SQL Server に対する操作を司るクラスです。
+            このクラスはフレームワーク基盤です。独自のコードで使用しないでください。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.SqlServerDatabase.CreateLocalDB(Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            LocalDBを作成します。
+            </summary>
+            <param name="server">
+            SQL Server Express 2012, SQL Server Express 2014, SQL Server 2014 のみが指定できます。
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.SqlServerDatabase.AttachDatabase(System.String,System.String,System.IO.FileInfo,System.IO.FileInfo,Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            MDFファイルをデータベースにアタッチします。
+            </summary>
+            <param name="serverName">サーバー名を指定します。</param>
+            <param name="databaseName">データベース名を指定します。</param>
+            <param name="mdfFile">アタッチするMDFファイルを指定します。</param>
+            <param name="ldfFile">アタッチする MDFファイルのログファイル（同名_log.ldf）を指定します。</param>
+            <param name="createServerKind">
+            None 以外を指定すると、アタッチに失敗したときに指定されたデータベースの作成を行い、再度アタッチを試みます。
+            SQL Server Express 2012, SQL Server Express 2014, SQL Server 2014 のみが指定できます。
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.SqlServerDatabase.ImportDatabase(System.String,System.String,System.IO.FileInfo,Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            BACPACファイルをデータベースにインポートします。
+            </summary>
+            <param name="serverName">サーバー名を指定します。</param>
+            <param name="databaseName">データベース名を指定します。</param>
+            <param name="bacpacFile">インポートする BACPACファイル を指定します。</param>
+            <param name="createServerKind">
+            None 以外を指定すると、アタッチに失敗したときに指定されたデータベースの作成を行い、再度インポートを試みます。
+            SQL Server Express 2012, SQL Server Express 2014, SQL Server 2014 のみが指定できます。
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.Infrastructures.SqlServerDatabase.DeployDatabase(System.String,System.String,System.IO.FileInfo,Net.Surviveplus.UnitTestPlus.DatabaseKind)">
+            <summary>
+            DACPACファイルをデータベースにデプロイします。
+            </summary>
+            <param name="serverName">サーバー名を指定します。</param>
+            <param name="databaseName">データベース名を指定します。</param>
+            <param name="dacpacFile">デプロイする DACPACファイル を指定します。</param>
+            <param name="createServerKind">
+            None 以外を指定すると、アタッチに失敗したときに指定されたデータベースの作成を行い、再度デプロイを試みます。
+            SQL Server Express 2012, SQL Server Express 2014, SQL Server 2014 のみが指定できます。
+            </param>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.DatabaseKind">
+            <summary>
+                <para>単体テストに使用するデータベースの種類を表す列挙体です。</para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.DatabaseKind.None">
+            <summary>
+                <para>なし、あるいは不明を表します。</para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.DatabaseKind.SqlServer2012ExpressLocalDB">
+            <summary>
+                <para>
+            SQL Server 2012 Express の (LocalDB)\v11.0 を表します。
+            これは Visual Studio 2012 で使用できます。
+            </para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.DatabaseKind.SqlServer2014ExpressLocalDB">
+            <summary>
+                <para>
+            SQL Server 2014 Express の (localdb)\ProjectsV12 を表します。
+            これは Visual Studio 2013 と Visual Studio Online で使用できます（2015年2月現在）。
+            </para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.DatabaseKind.SqlServer2014LocalDB">
+            <summary>
+                <para>
+            SQL Server 2014 の (localdb)\MSSQLLocalDB を表します。
+            これは SQL Server がインストールされている環境でのみ使用できます。
+            </para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.DatabaseKind.SqlServer">
+            <summary>
+                <para>SQL Server の任意の接続を表します。これは現在使用できません。</para>
+            </summary>
+        </member>
+        <member name="T:Net.Surviveplus.UnitTestPlus.UnitTestDatabases">
+            <summary>
+                <para>単体テストでデータベースを利用するためのクラスです。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.Dispose">
+            <summary>
+                <para>アンマネージ リソースの解放およびリソースに関連付けられているアプリケーション定義のタスクを実行します。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.Finalize">
+            <summary>
+                <para>インスタンスを解放します。</para>
+            </summary>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.disposedValue">
+            <summary>
+                <para>重複する呼び出しを検出するために使用されるバッキングフィールドです。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.Dispose(System.Boolean)">
+            <summary>
+                <para>インスタンスが使用しているアンマネージオブジェクト、およびマネージオブジェクトを解放します。</para>
+            </summary>
+            <param name="disposing">
+                <para>マネージオブジェクトを明示的に解放する時は True を指定します。それ以外は False を指定します。</para>
+            </param>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.#ctor(System.Object,System.String)">
+            <summary>
+                <para>インスタンスを初期化します。</para>
+            </summary>
+            <param name="testClass">
+                <para>対象のテストクラスを指定します。通常、テストメソッド無いでは this (Visual Basic では Me) を指定します。</para>
+            </param>
+            <param name="folderName">
+                <para>使用するデータベースファイルが保存されているフォルダの名前を指定します。省略時は "Database" となります。</para>
+            </param>
+        </member>
+        <member name="F:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.valueOfServer">
+            <summary>
+                <para>Server プロパティのバッキングフィールドです。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.AttachFiles">
+            <summary>
+                <para>データベースにファイルをアタッチ（あるいはインポート）します。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.CreateAttachedEntityConnectionString(System.String,System.String)">
+            <summary>
+                <para>アタッチ（あるいはインポート）されたデータベースへの、Entity Framework で使用するための接続文字列を取得します。</para>
+            </summary>
+            <param name="modelName">
+                <para>エンティティモデルの名前を指定します。</para>
+            </param>
+            <param name="mdfFileName">
+                <para>アタッチ（あるいはインポート）されたファイルの名称（拡張子を除く）を指定します。</para>
+            </param>
+            <returns>
+                <para>作成された接続文字列を返します。</para>
+            </returns>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.CreateAttachedConnectionString(System.String)">
+            <summary>
+                <para>アタッチ（あるいはインポート）されたデータベースへの接続文字列を取得します。</para>
+            </summary>
+            <param name="mdfFileName">
+                <para>アタッチ（あるいはインポート）されたファイルの名称（拡張子を除く）を指定します。</para>
+            </param>
+            <returns>
+                <para>作成された接続文字列を返します。</para>
+            </returns>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.DetachFiles">
+            <summary>
+                <para>アタッチされた（あるいはインポートされた）データベースを全てデタッチします。</para>
+            </summary>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.CreateEntityConnectionString(System.String,System.String,System.String)">
+            <summary>
+                <para>Entity Framework を使ってデータベースに接続するための接続文字列を作成します。</para>
+            </summary>
+            <param name="entityModelName">
+                <para>エンティティモデルの名前を指定します。</para>
+            </param>
+            <param name="serverName">
+                <para>サーバーの名前を指定します。</para>
+            </param>
+            <param name="databaseName">
+                <para>データベース名を指定します。</para>
+            </param>
+            <returns>
+                <para>作成された接続文字列を返します。</para>
+            </returns>
+        </member>
+        <member name="M:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.CreateConnectionString(System.String,System.String)">
+            <summary>
+                <para>データベースに接続するための接続文字列を作成します。</para>
+            </summary>
+            <param name="serverName">
+                <para>サーバーの名前を指定します。</para>
+            </param>
+            <param name="databaseName">
+                <para>データベース名を指定します。</para>
+            </param>
+            <returns>
+                <para>作成された接続文字列を返します。</para>
+            </returns>
+        </member>
+        <member name="P:Net.Surviveplus.UnitTestPlus.UnitTestDatabases.Server">
+            <summary>
+                <para>テストに使用するデータベースを取得または設定します。</para>
+            </summary>
+        </member>
+    </members>
+</doc>

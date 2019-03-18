@@ -1,0 +1,9 @@
+﻿<Application x:Class="ObjectOrientedSample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ObjectOrientedSample"
+             StartupUri="StartUpWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

@@ -1,0 +1,15 @@
+<Moles xmlns="http://schemas.microsoft.com/moles/2010/">
+  <Assembly Name="mscorlib"/>
+  <StubGeneration>
+    <Types>
+      <Clear/>
+      <Add TypeName="DateTime!"/>
+    </Types>
+  </StubGeneration>
+  <MoleGeneration>
+    <Types>
+      <Clear/>
+      <Add TypeName="DateTime!"/>
+    </Types>
+  </MoleGeneration>
+</Moles>

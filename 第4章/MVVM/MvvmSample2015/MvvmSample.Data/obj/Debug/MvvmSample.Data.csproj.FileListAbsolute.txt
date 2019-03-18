@@ -1,0 +1,11 @@
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\MvvmSample.Data.dll.config
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\MvvmSample.Data.dll
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\MvvmSample.Data.pdb
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\EntityFramework.dll
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\EntityFramework.xml
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\obj\Debug\MvvmSample.Data.csproj.CoreCompileInputs.cache
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\obj\Debug\MvvmSample.Data.csproj.CopyComplete
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\obj\Debug\MvvmSample.Data.dll
+E:\02.Devs\87.modernC#\98555\TeamDev\第4章\MVVM\MvvmSample2015\MvvmSample.Data\obj\Debug\MvvmSample.Data.pdb
